@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:09:43 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 19:02:20 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/05/31 19:20:43 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@ t_stack *ft_stacknew(int content, int index)
 	new->prev = NULL;
 	return (new);
 }
-
-
-// t_stack *ft_stacknew(int content, int index)
-// {
-// 	t_stack *new;
-
-// 	new = (t_stack *)malloc(sizeof(t_stack));
-// 	if (!new)
-// 		return (NULL);
-// 	new->content = content;
-// 	new->index = index;
-// 	new->next = NULL;
-// 	return (new);
-	
-// }
 
 void add_node_back(t_stack **stack, t_stack *new_node)
 {
@@ -87,22 +72,6 @@ void print_stack(t_stack *stack)
 		current = current->prev;
 	}
 }
-
-//ORIGINAL
-// void print_stack(t_stack *stack)
-// {
-// 	if (!stack)
-//     {
-//         printf("(vacío)\n");
-//         return;
-//     }
-// 	while(stack)
-// 	{
-// 		printf("Nodo: content = %d, index = %d\n", stack->content, stack->index);
-// 		stack = stack->next;
-// 	}
-// 	printf("\n");
-// }
 
 void ft_initstack(int argc, char **argv, t_stack **stack_a)
 {

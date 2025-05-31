@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:12:57 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 19:05:01 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/05/31 20:50:05 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,60 +92,6 @@ void free_stack(t_stack **stack)
     }
 }
 
-
-int main(int argc, char **argv)
-{
-    t_stack *stack_a = NULL;
-    t_stack *stack_b = NULL;
-
-    if (argc < 2)
-    {
-        printf("Uso: %s num1 num2 ...\n", argv[0]);
-        return (1);
-    }
-
-    // 🔹 Inicializa `stack_a` con los valores de entrada
-    ft_initstack(argc - 1, argv + 1, &stack_a);
-
-    // 🔹 Muestra el estado inicial de `stack_a`
-    printf("Stack A inicial:\n");
-    print_stack(stack_a);
-
-    // 🔹 Aplica operaciones básicas
-    printf("\nAplicando 'sa' (swap en A)...\n");
-    sa(&stack_a, false);
-    print_stack(stack_a);
-
-    printf("\nAplicando 'pb' (push de A a B)...\n");
-    pb(&stack_a, &stack_b);
-    print_stack(stack_a);
-    print_stack(stack_b);
-
-    printf("\nAplicando 'pa' (push de B a A)...\n");
-    pa(&stack_a, &stack_b);
-    print_stack(stack_a);
-    print_stack(stack_b);
-
-    printf("\nAplicando 'rra' (reverse rotate en A)...\n");
-    rra(&stack_a, false);
-    print_stack(stack_a);
-
-    printf("\nAplicando 'rrb' (reverse rotate en B)...\n");
-    rrb(&stack_b, false);
-    print_stack(stack_b);
-
-    printf("\nAplicando 'rrr' (reverse rotate en A y B)...\n");
-    rrr(&stack_a, &stack_b, false);
-    print_stack(stack_a);
-    print_stack(stack_b);
-
-    // 🔹 Limpia la memoria usada
-    printf("\nLiberando memoria...\n");
-    free_stack(&stack_a);
-    free_stack(&stack_b);
-
-    return (0);
-}
 
 
 

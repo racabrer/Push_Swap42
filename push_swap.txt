@@ -6,7 +6,9 @@ Comillas con el split *
 Número más grande de int *
 Número menor de int*
 Caracteres raros *
-Si ya está ordenado 
+Comprobar si ya está ordenado *
+Ordenar dos números *
+Ordenar 3 números *
 
 -------------------------------------------------------------
 
@@ -16,6 +18,7 @@ Si ya está ordenado
 4. Empezar el algoritmo
 
 
+*Importante* 
 Al usar listas doblemente enlazadas, 
 siempre que modifiques next, debes actualizar también prev, y viceversa.
 
