@@ -1,0 +1,21 @@
+Cosas a tener en cuenta: 
+
+Números negativos *
+Números repetidos *
+Comillas con el split *
+Número más grande de int *
+Número menor de int*
+Caracteres raros *
+Si ya está ordenado 
+
+-------------------------------------------------------------
+
+1. Meter todo en el stack *
+2. Printear el stack *
+3. Hacer los movimientos *
+4. Empezar el algoritmo
+
+
+Al usar listas doblemente enlazadas, 
+siempre que modifiques next, debes actualizar también prev, y viceversa.
+
