@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 21:08:25 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 21:26:53 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:42:37 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,37 @@ void sort_three(t_stack **a) // Usamos doble puntero
         ra(a, false);
     }
 }
+
+void sort_four(t_stack **a, t_stack **b)
+{
+    int size;
+
+    if (is_sorted(*a))
+        return;
+
+    size = stack_size(*a);
+    if (size == 4)
+        push_smallest_to_b(a, b);
+
+    sort_three(a);
+
+    if (stack_size(*b) == 2 && (*b)->content > (*b)->next->content)
+        sb(b, false); 
+
+    while (stack_size(*b) > 0)
+        pa(a, b); 
+}
+void	sort_five(t_stack **a, t_stack **b)
+{
+	if (is_sorted(*a))
+		return;
+	while (stack_size(*a) > 3)
+		push_smallest_to_b(a, b);
+	sort_three(a);
+	if (stack_size(*b) == 2 && (*b)->index < (*b)->next->index)
+		sb(b, false);
+	while (*b)
+		pa(a, b);
+}
+
+

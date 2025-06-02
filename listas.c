@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:09:43 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 19:20:43 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/02 18:15:55 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,18 @@ void add_node_back(t_stack **stack, t_stack *new_node)
 
 void print_stack(t_stack *stack)
 {
-	t_stack *last;
-
-	if (!stack)
-	{
-		printf("(vacio)\n");
-		printf("Backward:\n(vacio)\n");
-		return;
-	}
-	t_stack * current = stack;
-	while (current)
-	{
-		printf("Nodo: content = %d, index = %d\n", current->content, current->index);
-		if(!current->next)
-			last = current;
-		current = current->next;
-	}
-	printf("Backward:\n");
-	current = last;
-	while (current)
-	{
-		printf("Nodo: conten = %d, index = %d\n", current->content, current->index);
-		current = current->prev;
-	}
+    if (!stack)
+    {
+        printf("(vacio)\n");
+        return;
+    }
+    
+    t_stack *current = stack;
+    while (current)
+    {
+        printf("Nodo: content = %d, index = %d\n", current->content, current->index);
+        current = current->next;
+    }
 }
 
 void ft_initstack(int argc, char **argv, t_stack **stack_a)
@@ -78,7 +67,6 @@ void ft_initstack(int argc, char **argv, t_stack **stack_a)
     char **spl_arr;
     int i;
     int j;
-    long num;
     int index;
 
     i = 0;

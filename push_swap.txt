@@ -9,6 +9,9 @@ Caracteres raros *
 Comprobar si ya está ordenado *
 Ordenar dos números *
 Ordenar 3 números *
+Ordenar 4 números *
+Ordenar 5 números *
+Makefile *
 
 -------------------------------------------------------------
 

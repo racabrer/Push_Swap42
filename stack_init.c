@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:12:57 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 20:50:05 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:41:48 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ long ft_atol_ps(const char *str)
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	return (result);
 }
-
+/*
 int stack_size(t_stack *stack)
 {
     int count = 0;
@@ -79,6 +79,8 @@ int stack_size(t_stack *stack)
 
     return count;
 }
+*/
+
 
 void free_stack(t_stack **stack)
 {

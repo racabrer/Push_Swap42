@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 21:24:34 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:43:23 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ typedef struct t_stack
 
 
 //Stack init
-int is_valid_number(const char *str);
-int is_duplicate(t_stack *stack, int num);
-long ft_atol_ps(const char *str);
+int 	is_valid_number(const char *str);
+int 	is_duplicate(t_stack *stack, int num);
+long 	ft_atol_ps(const char *str);
 
 // Listas
 t_stack *ft_stacknew(int content, int index); 
-void add_node_back(t_stack **stack, t_stack *new_node);
-void print_stack(t_stack *stack);
-void ft_initstack(int argc, char **argv, t_stack **stack_a);
-void ft_free_split(char **arr);
+void 	add_node_back(t_stack **stack, t_stack *new_node);
+void 	print_stack(t_stack *stack);
+void	ft_initstack(int argc, char **argv, t_stack **stack_a);
+void 	ft_free_split(char **arr);
 
 //Swap
 void 	swap_node(t_stack **stack);
@@ -54,9 +54,9 @@ void	sb(t_stack **b, bool checker);
 void	ss(t_stack **a, t_stack **b, bool checker);
 
 //Push
-void push(t_stack **dest, t_stack **src);
-void pa(t_stack **a, t_stack **b);
-void pb(t_stack **a, t_stack **b);
+void 	push(t_stack **dest, t_stack **src);
+void 	pa(t_stack **a, t_stack **b);
+void 	pb(t_stack **a, t_stack **b);
 
 //Rotate
 void	rotate_node(t_stack **stack);
@@ -70,16 +70,27 @@ void	rra(t_stack **a, bool checker);
 void	rrb(t_stack **b, bool checker);
 void    rrr(t_stack **a, t_stack **b, bool checker);
 
-int 	stack_size(t_stack *stack);
+//int 	stack_size(t_stack *stack);
 void 	free_stack(t_stack **stack);
 void 	print_stack(t_stack *stack);
 
 //Errors
 int		is_sorted(t_stack *stack);
 
-
 //Little numbers
-void sort_two(t_stack **a);
-void sort_three(t_stack **a) ;
+void 	sort_two(t_stack **a);
+void 	sort_three(t_stack **a);
+void 	sort_four(t_stack **a, t_stack **b);
+void 	sort_five(t_stack **a, t_stack **b);
+
+//Stack Utils
+int 	stack_size(t_stack *stack);
+void 	push_smallest_to_b(t_stack **a, t_stack **b);
+t_stack *find_smallest(t_stack *stack);
+
+//Indexes
+void 	initialize_indexes(t_stack **stack);
+t_stack *find_smallest_unindexed(t_stack *stack);
+void 	assign_indexes(t_stack **stack);
 
 #endif  // S_STACK_H
