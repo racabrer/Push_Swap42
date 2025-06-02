@@ -25,3 +25,23 @@ Makefile *
 Al usar listas doblemente enlazadas, 
 siempre que modifiques next, debes actualizar también prev, y viceversa.
 
+--------------------------------------------------------------
+
+
+algoritmo
+
+- Definir el tamaño de K
+	Elegir el tamaño de K:
+		- 1. Analizar el tamaño de la pila:
+			*Menos de 10 elementos
+			*Entre 10 y 50 elementos 
+			*Más de 50 elementos
+		- 2. Determinar K dinámicamente (get K, fórmula basada en el tamaño de la pila).
+			Cómo funciona: 
+				* Para listas pequeñas (≤10), K es bajo para minimizar pasos innecesarios.
+				* Para listas medianas (≤50), K = 5 para equilibrar pb y pa.
+				* Para listas grandes (≤100), K = 10 optimiza los grupos sin perder eficiencia.
+				* Para listas enormes (>100), K se adapta dinámicamente con size / 10.
+- Dividir la pila en K segmentos
+- Ordenar los segmentos
+- Integrarlo en push_swap

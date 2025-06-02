@@ -6,7 +6,7 @@
 #    By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/02 18:04:15 by racabrer          #+#    #+#              #
-#    Updated: 2025/06/02 18:08:14 by racabrer         ###   ########.fr        #
+#    Updated: 2025/06/02 19:28:33 by racabrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ_DIR = objs
 
 # Archivos fuente (en el directorio actual)
 SRC = errors.c indexes.c listas.c little_numbers.c main.c push.c reverse_rotate.c \
-		rotate.c stack_init.c stack_utils.c swap.c
+		rotate.c stack_init.c stack_utils.c swap.c k_sort.c
 
  # Archivos objeto (redirigidos a la carpeta objs/)
 OBJ = $(SRC:.c=.o)

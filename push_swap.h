@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/02 17:43:23 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/02 19:56:56 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,12 @@ t_stack *find_smallest(t_stack *stack);
 void 	initialize_indexes(t_stack **stack);
 t_stack *find_smallest_unindexed(t_stack *stack);
 void 	assign_indexes(t_stack **stack);
+
+
+//K_sort
+int 	get_k_size (int stack_size);
+
+
+
 
 #endif  // S_STACK_H
