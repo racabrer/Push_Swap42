@@ -42,6 +42,8 @@ algoritmo
 				* Para listas medianas (≤50), K = 5 para equilibrar pb y pa.
 				* Para listas grandes (≤100), K = 10 optimiza los grupos sin perder eficiencia.
 				* Para listas enormes (>100), K se adapta dinámicamente con size / 10.
-- Dividir la pila en K segmentos
+- Dividir la pila en K segmentos 
 - Ordenar los segmentos
 - Integrarlo en push_swap
+
+

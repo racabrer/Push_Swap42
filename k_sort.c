@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:27:50 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/02 20:18:17 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:53:50 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,64 @@ int get_k_size (int stack_size)
 		return (stack_size / 25);
 }
 
-//hay que revisar esto
-  void push_chunks_to_b(t_stack **a, t_stack **b, int k)
+void push_smallest_to_b (t_stack **a, t_stack **b)
 {
-	int size;
-	int chunk_size;
-	int current_limit; //establece el límite actual de índice para el primer fragmento
+	t_stack *smallest;
+	t_stack *current;
+	int pos;
+	int i;
 
-	size = stack_size(*a);
-	chunk_size = size / k;
-	current_limit = chunk_size;
-	while (*a)
+	smallest = *a;
+	current = *a;
+	pos = 0;
+	i = 0;
+	
+	while(current)
 	{
-		if((*a)->index < current_limit)
+		if (current->content < smallest->content)
 		{
-			pb(a, b);
-			if ((*b)->index < current_limit - chunk_size / 2)
-				rb(b, true);
-			else if (stack_size(*a) > 1 && (*a)->index >= current_limit + chunk_size)
-				rra(a, true);
-			else
-				ra(a, true);
+			smallest = current;
+			pos = i;
 		}
-		if (stack_size(*b) == current_limit || stack_size(*b) >= chunk_size )
-			current_limit += (chunk_size / 2);
-		if (*b && stack_size(*b) > 1 && (*b)->index > (*b)->next->index)
-			sb(b, true);
+		current = current->next;
+		i++;
 	}
+	while (pos > 0)
+	{
+		ra (a, false);
+		pos--;
+	}
+	pb(a, b);
 }
 
+t_stack *find_smallest(t_stack *a)
+{
+	t_stack *smallest;
 
+	*smallest = *a;
+	
+	while (a)
+	{
+		if (a->content < smallest->content)
+			smallest = a;
+		a = a->next;
+	}
+	return (smallest);
+}
+
+int get_position (t_stack *a, t_stack *smallest)
+{
+	int pos;
+
+	pos = 0;
+	while (a)
+	{
+		if (a == smallest)
+			return (pos);
+		a = a->next;
+		pos++;
+	}
+	return (pos);
+}
  
 
