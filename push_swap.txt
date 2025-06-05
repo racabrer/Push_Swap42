@@ -47,3 +47,28 @@ algoritmo
 - Integrarlo en push_swap
 
 
+*******************************************************************************************
+
+LO QUE FALTAAAAAAAAAAAAAAAA
+
+
+Ahora solo estás empujando el más pequeño a B una vez.
+
+Para hacer la ordenación completa con chunks (k_sort()), debes:
+
+1. Hacer un bucle que:
+Encuentre todos los elementos cuyo index esté en el chunk actual 
+([current_index, current_index + k))
+
+Los mueva a B uno a uno usando ra()/rra() según su posición
+
+2. Cuando A esté vacío, hacer:
+Push back desde B a A, empezando por el mayor índice (función find_max())
+
+Te lo puedo dejar como:
+
+Función k_sort(t_stack **a, t_stack **b)
+
+Función find_max(t_stack *b)
+
+Posible get_position() auxiliar para evitar duplicaciones

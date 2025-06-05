@@ -6,18 +6,16 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 20:49:32 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/02 17:55:32 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:42:00 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 int main(int argc, char **argv)
 {
-    t_stack *stack_a = NULL;
-    t_stack *stack_b = NULL;
+    t_stack *a = NULL;
+    t_stack *b = NULL;
 
     if (argc < 2)
     {
@@ -25,50 +23,35 @@ int main(int argc, char **argv)
         return (1);
     }
 
-    // Inicializar pila con los valores de entrada
-    ft_initstack(argc - 1, argv + 1, &stack_a);
-    assign_indexes(&stack_a);
-
-    // Verificar estado de la lista
-    int sorted_status = is_sorted(stack_a);
-    if (sorted_status == -2)  // Solo hay un número
-    {
-        printf("Solo hay un número en la lista.\n");
-        free_stack(&stack_a);
-        return (0);
-    }
-    else if (sorted_status == 1)  // Ya está ordenada
-    {
-        printf("La lista ya está ordenada.\n");
-        free_stack(&stack_a);
-        return (0);
-    }
+    ft_initstack(argc - 1, argv + 1, &a);
+    assign_indexes(&a);
 
     printf("Stack A inicial:\n");
-    print_stack(stack_a);
+    print_stack(a);
 
-    // Aplicar el algoritmo de ordenación correcto
-    int size = stack_size(stack_a);
-    if (size == 2)
-        sort_two(&stack_a);
-    else if (size == 3)
-        sort_three(&stack_a);
-    else if (size == 4)
-        sort_four(&stack_a, &stack_b);
-    else if (size == 5)
-        sort_five(&stack_a, &stack_b);
-    else
-        printf("No hay algoritmo para ordenar %d números.\n", size);
+    int k = get_k_size(stack_size(a));
+    printf("K size calculado: %d\n", k);
 
-    printf("\nStack A después de la ordenación:\n");
-    print_stack(stack_a);
+    printf("\nBuscando el nodo más pequeño y pasándolo a B...\n");
+    push_smallest_to_b(&a, &b);
 
-    // Liberación de memoria
-    free_stack(&stack_a);
-    free_stack(&stack_b);
+    printf("Stack A:\n");
+    print_stack(a);
+    printf("Stack B:\n");
+    print_stack(b);
 
-    return (0);
+    t_stack *smallest = find_smallest(a);
+    if (smallest)
+        printf("El más pequeño ahora en A es: %d\n", smallest->content);
+
+    int pos = get_position(a, smallest);
+    printf("Posición del más pequeño en A: %d\n", pos);
+
+    free_stack(&a);
+    free_stack(&b);
+    return 0;
 }
+
 
 
 

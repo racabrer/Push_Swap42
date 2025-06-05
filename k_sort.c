@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:27:50 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/04 17:53:50 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:52:51 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int get_k_size (int stack_size)
 	else
 		return (stack_size / 25);
 }
-
+/*
 void push_smallest_to_b (t_stack **a, t_stack **b)
 {
 	t_stack *smallest;
@@ -55,13 +55,18 @@ void push_smallest_to_b (t_stack **a, t_stack **b)
 	}
 	pb(a, b);
 }
+*/
 
+
+/*
 t_stack *find_smallest(t_stack *a)
 {
 	t_stack *smallest;
 
-	*smallest = *a;
-	
+	if (!a)
+		return (NULL);
+		
+	smallest = a;
 	while (a)
 	{
 		if (a->content < smallest->content)
@@ -70,6 +75,7 @@ t_stack *find_smallest(t_stack *a)
 	}
 	return (smallest);
 }
+*/
 
 int get_position (t_stack *a, t_stack *smallest)
 {
