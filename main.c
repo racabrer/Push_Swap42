@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 20:49:32 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/05 16:42:00 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:02:39 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,43 @@ int main(int argc, char **argv)
     ft_initstack(argc - 1, argv + 1, &a);
     assign_indexes(&a);
 
-    printf("Stack A inicial:\n");
+    if (is_sorted(a))
+    {
+        printf("La lista ya está ordenada.\n");
+        free_stack(&a);
+        return (0);
+    }
+
+    int size = stack_size(a);
+    printf("Tamaño de la pila: %d\n", size);
+
+    if (size == 2)
+        sort_two(&a);
+    else if (size == 3)
+        sort_three(&a);
+    else if (size == 4)
+        sort_four(&a, &b);
+    else if (size == 5)
+        sort_five(&a, &b);
+    else
+    {
+        printf("Ordenando con k_sort...\n");
+        k_sort(&a, &b);
+    }
+
+    printf("\nStack A ordenado:\n");
     print_stack(a);
 
-    int k = get_k_size(stack_size(a));
-    printf("K size calculado: %d\n", k);
-
-    printf("\nBuscando el nodo más pequeño y pasándolo a B...\n");
-    push_smallest_to_b(&a, &b);
-
-    printf("Stack A:\n");
-    print_stack(a);
-    printf("Stack B:\n");
+    // Nueva línea para imprimir la pila B después de la ordenación
+    printf("\nStack B (si queda algún elemento):\n");
     print_stack(b);
-
-    t_stack *smallest = find_smallest(a);
-    if (smallest)
-        printf("El más pequeño ahora en A es: %d\n", smallest->content);
-
-    int pos = get_position(a, smallest);
-    printf("Posición del más pequeño en A: %d\n", pos);
 
     free_stack(&a);
     free_stack(&b);
-    return 0;
+    return (0);
 }
+
+
 
 
 
