@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:09:43 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/02 18:15:55 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/06 19:11:00 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,46 +50,52 @@ void print_stack(t_stack *stack)
 {
     if (!stack)
     {
-        printf("(vacio)\n");
+        //printf("(vacio)\n");
         return;
     }
-    
     t_stack *current = stack;
     while (current)
-    {
-        printf("Nodo: content = %d, index = %d\n", current->content, current->index);
         current = current->next;
-    }
-}
 
-void ft_initstack(int argc, char **argv, t_stack **stack_a)
+}
+void	ft_initstack(int argc, char **argv, t_stack **stack_a)
 {
-    char **spl_arr;
-    int i;
-    int j;
-    int index;
+	char	**spl_arr;
+	int		i;
+	int		index;
 
-    i = 0;
-    index = 0;
-    while (i < argc)
-    {
-        spl_arr = ft_split(argv[i], ' ');
-        if (!spl_arr)
-            exit(EXIT_FAILURE);
-        j = 0;
-        while (spl_arr[j])
-        {
-            if (!is_valid_number(spl_arr[j]) || is_duplicate(*stack_a, (int)ft_atol_ps(spl_arr[j])))
-                exit(write(2, "Error\n", 6));
-            add_node_back(stack_a, ft_stacknew((int)ft_atol_ps(spl_arr[j]), index));
-            index = index + 1;
-            j = j + 1;
-        }
-        ft_free_split(spl_arr);
-        i = i + 1;
-    }
+	i = 0;
+	index = 0;
+	while (i < argc)
+	{
+		spl_arr = ft_split(argv[i], ' ');
+		if (!spl_arr)
+			exit(EXIT_FAILURE);
+		
+		ft_process_arg(spl_arr, stack_a, &index);
+		ft_free_split(spl_arr);
+		i++;
+	}
 }
 
+void	ft_process_arg(char **spl_arr, t_stack **stack_a, int *index)
+{
+	int	j;
+
+	j = 0;
+	while (spl_arr[j])
+	{
+		if (!is_valid_number(spl_arr[j]) || 
+			is_duplicate(*stack_a, (int)ft_atol_ps(spl_arr[j])))
+		{
+			//write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
+		add_node_back(stack_a, ft_stacknew((int)ft_atol_ps(spl_arr[j]), *index));
+		(*index)++;
+		j++;
+	}
+}
 void ft_free_split(char **arr)
 {
     int i = 0;

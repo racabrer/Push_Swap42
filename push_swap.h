@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/06 17:05:54 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:42:23 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ long 	ft_atol_ps(const char *str);
 t_stack *ft_stacknew(int content, int index); 
 void 	add_node_back(t_stack **stack, t_stack *new_node);
 void 	print_stack(t_stack *stack);
+void	ft_process_arg(char **spl_arr, t_stack **stack_a, int *index);
 void	ft_initstack(int argc, char **argv, t_stack **stack_a);
 void 	ft_free_split(char **arr);
 
@@ -92,8 +93,7 @@ t_stack *find_smallest(t_stack *stack);
 void 	initialize_indexes(t_stack **stack);
 t_stack *find_smallest_unindexed(t_stack *stack);
 void 	assign_indexes(t_stack **stack);
-
-
+ 
 //K_sort
 int 	get_k_size (int stack_size);
 int 	get_position (t_stack *a, t_stack *smallest);
@@ -101,9 +101,5 @@ t_stack *find_max(t_stack *stack);
 void 	push_back_from_b(t_stack **a, t_stack **b);
 void 	push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k);
 void 	k_sort(t_stack **a, t_stack **b);
-
-
-//void print_stack(t_stack *stack);
-
 
 #endif  // S_STACK_H

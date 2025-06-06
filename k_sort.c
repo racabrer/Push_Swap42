@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:27:50 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/06 17:27:34 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:51:29 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,26 +82,7 @@ void push_back_from_b(t_stack **a, t_stack **b)
         print_stack(*b);
     }
 }
- 
-// void push_back_from_b(t_stack **a, t_stack **b)
-// {
-// 	t_stack *max;
-// 	int pos;
 
-// 	max = find_max(*b);
-// 	pos = get_position(*b, max);
-// 	while (*b)
-// 	{
-// 		if (pos < stack_size(*b)/ 2)
-// 			while (pos-- > 0)
-// 				rb(b, false);
-// 		else
-// 			while(pos++ < stack_size(*b))
-// 				rrb(b, false);
-// 		pa(a, b);		
-		
-// 	}
-// }
 void push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k)
 {
 	t_stack *tmp;
@@ -119,14 +100,12 @@ void push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k)
 		*current_index += k;
 		return;
 	}
-	printf("Encontrado index %d en posición %d\n", tmp->index, pos);
 	if (pos < stack_size(*a) / 2)
 		while (pos-- > 0)
 			ra(a, false);
 	else
 		while(pos++ < stack_size(*a))
 			rra(a, false);
-	printf("Moviendo index %d a B\n", tmp->index);
 	pb(a, b);
 }
 
@@ -143,13 +122,3 @@ void k_sort(t_stack **a, t_stack **b)
 		push_chunk_to_b(a, b, &current_index, k);
 	push_back_from_b(a, b);
 }
-
-
-// void print_stack(t_stack *stack)
-//  {
-//     printf("Stack B:\n");
-//     while (stack) {
-//         printf("Nodo: content = %d\n", stack->content);
-//         stack = stack->next;
-//     }
-// }

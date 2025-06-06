@@ -72,3 +72,6 @@ Función k_sort(t_stack **a, t_stack **b)
 Función find_max(t_stack *b)
 
 Posible get_position() auxiliar para evitar duplicaciones
+
+
+Si le paso un "+" entra y no debería
