@@ -6,44 +6,44 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:12:57 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/06 19:09:01 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/09 17:43:12 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_valid_number(const char *str)
+int	is_valid_number(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!str || !*str)
-        return (0);
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    if (!str[i] || !isdigit(str[i]))
-        return (0);
-    while (str[i])
-    {
-        if (!isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	if (!str || !*str)
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i] || !isdigit(str[i]))
+		return (0);
+	while (str[i])
+	{
+		if (!isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-int is_duplicate(t_stack *stack, int num)
+int	is_duplicate(t_stack *stack, int num)
 {
 	while (stack)
 	{
 		if (stack->content == num)
-			return(1);
+			return (1);
 		stack = stack->next;
 	}
 	return (0);
 }
 
-long ft_atol_ps(const char *str)
+long	str_to_long(const char *str)
 {
 	long	result;
 	int		i;
@@ -70,36 +70,15 @@ long ft_atol_ps(const char *str)
 		ft_putstr_fd("Error\n", 2);
 	return (result);
 }
-/*
-int stack_size(t_stack *stack)
+
+void	free_stack(t_stack **stack)
 {
-    int count = 0;
+	t_stack	*tmp;
 
-    while (stack)
-    {
-        count++;
-        stack = stack->next;
-    }
-
-    return count;
+	while (*stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
 }
-*/
-
-
-void free_stack(t_stack **stack)
-{
-    t_stack *tmp;
-
-    while (*stack)
-    {
-        tmp = *stack;
-        *stack = (*stack)->next;
-        free(tmp);
-    }
-}
-
-
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:40:08 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/31 19:05:36 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/09 20:02:17 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,42 @@ posición, de forma que el último elemento se convierte en el primero.
 rrr rra y rrb al mismo tiempo.
 */
 
-void reverse_rotate_node(t_stack **stack)
+void	reverse_rotate_node(t_stack **stack)
 {
-    t_stack *last;
-    t_stack *prev_last;
+	t_stack	*last;
+	t_stack	*prev_last;
 
-    if (!stack || !(*stack) || !(*stack)->next)
-        return;
-
-    last = *stack;
-    while (last->next)
-        last = last->next;
-
-    prev_last = last->prev;
-    if (prev_last)
-        prev_last->next = NULL;
-
-    last->prev = NULL;
-    last->next = *stack;
-    (*stack)->prev = last;
-    *stack = last;
+	if (!stack || !(*stack) || !(*stack)->next)
+		return ;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	prev_last = last->prev;
+	if (prev_last)
+		prev_last->next = NULL;
+	last->prev = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
+	*stack = last;
 }
 
-void    rra(t_stack **a, bool checker)
+void	rra(t_stack **a, bool checker)
 {
-    reverse_rotate_node(a); 
-    if (!checker)
-        write(1, "rra\n", 4);
+	reverse_rotate_node(a);
+	if (!checker)
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b, bool checker)
 {
-    reverse_rotate_node(b); 
+	reverse_rotate_node(b);
 	if (!checker)
 		write(1, "rrb\n", 4);
 }
-void    rrr(t_stack **a, t_stack **b, bool checker)
+
+void	rrr(t_stack **a, t_stack **b, bool checker)
 {
-    reverse_rotate_node(a);
+	reverse_rotate_node(a);
 	reverse_rotate_node(b);
 	if (!checker)
 		write(1, "rrr\n", 4);

@@ -75,3 +75,5 @@ Posible get_position() auxiliar para evitar duplicaciones
 
 
 Si le paso un "+" entra y no debería
+
+Errores cuando le paso dos números repetidos 

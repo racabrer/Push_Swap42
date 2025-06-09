@@ -6,39 +6,27 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:38:25 by racabrer          #+#    #+#             */
-/*   Updated: 2025/05/29 19:20:38 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/09 20:04:27 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-sa swap a: Intercambia los dos primeros elementos del stack a. No hace nada si
-hay uno o menos elementos.
-sb swap b: Intercambia los dos primeros elementos del stack b. No hace nada si
-hay uno o menos elementos.
-ss swap a y swap b a la vez.
-*/
-
-
-void swap_node(t_stack **stack)
+void	swap_node(t_stack **stack)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
-	if(!stack || !*stack || !(*stack)->next)
-		return;
-
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	first = *stack;
 	second = first->next;
-	//Intercambiar los nodos
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
 	second->prev = NULL;
 	second->next = first;
 	first->prev = second;
-
 	*stack = second;
 }
 
