@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 20:49:32 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/06 19:07:35 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/10 16:18:03 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int main(int argc, char **argv)
     t_stack *b = NULL;
 
     if (argc < 2)
+	{
+		write(2, "Error\n", 6);
         return (1);
+	}
     ft_initstack(argc - 1, argv + 1, &a);
     assign_indexes(&a);
     if (is_sorted(a))
@@ -39,7 +42,7 @@ int main(int argc, char **argv)
         sort_five(&a, &b);
     else
         k_sort(&a, &b);
-    print_stack(a);
+    // print_stack(a);
     free_stack(&a);
     free_stack(&b);
     return (0);

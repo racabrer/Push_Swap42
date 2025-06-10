@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/06 18:42:23 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/10 17:28:44 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct t_stack
 	int 	nbr;
 	int 	content;
 	int		index;
+	int 	k;
 	struct  t_stack *next;
 	struct	t_stack *prev;
 } t_stack;

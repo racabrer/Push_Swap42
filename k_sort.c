@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:27:50 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/06 17:51:29 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/10 17:30:08 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int get_k_size (int stack_size)
 	else if (stack_size <= 50)
 		return	(5);
 	else if (stack_size <= 100)
-		return (10);
-	else if (stack_size <= 500)
 		return (20);
+	else if (stack_size <= 500)
+		return (40);
 	else
 		return (stack_size / 25);
 }
@@ -64,6 +64,7 @@ void push_back_from_b(t_stack **a, t_stack **b)
 
     while (*b)
     {
+		if(
         max = find_max(*b);
         pos = get_position(*b, max);
         print_stack(*b);
@@ -90,6 +91,8 @@ void push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k)
 	
 	tmp = *a;
 	pos = 0;
+	// printf("tmp->index%i\ncurrent index%icurrent index + k%i\n", tmp->index, *current_index, *current_index + k);
+	
 	while(tmp && !(tmp->index >= *current_index && tmp->index < *current_index + k))
 	{
 		tmp = tmp->next;
@@ -107,6 +110,8 @@ void push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k)
 		while(pos++ < stack_size(*a))
 			rra(a, false);
 	pb(a, b);
+	if(tmp->index >= *current_index + (k/2) && tmp->index <= *current_index + k)
+		rb(b, false);
 }
 
 void k_sort(t_stack **a, t_stack **b)
@@ -118,7 +123,10 @@ void k_sort(t_stack **a, t_stack **b)
 	size = stack_size(*a);
 	k = get_k_size(size);
 	current_index = 0;
+	(*b)->k = k;
 	while (*a)
 		push_chunk_to_b(a, b, &current_index, k);
+	// print_stack(*b);
+	return ;
 	push_back_from_b(a, b);
 }
