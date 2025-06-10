@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 20:49:32 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/09 19:56:22 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:54:47 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,36 @@ void	exit_if_sorted(t_stack **a)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+    t_stack *a = NULL;
+    t_stack *b = NULL;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (1);
-	ft_initstack(argc - 1, argv + 1, &a);
-	assign_indexes(&a);
-	exit_if_sorted(&a);
-	choose_sorting(&a, &b);
-	print_stack(a);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+    if (argc < 2)
+	{
+		write(2, "Error\n", 6);
+        return (1);
+	}
+    ft_initstack(argc - 1, argv + 1, &a);
+    assign_indexes(&a);
+    if (is_sorted(a))
+    {
+        //printf("La lista ya está ordenada.\n");
+        free_stack(&a);
+        return (0);
+    }
+    int size = stack_size(a);
+    //printf("Tamaño de la pila: %d\n", size);
+    if (size == 2)
+        sort_two(&a);
+    else if (size == 3)
+        sort_three(&a);
+    else if (size == 4)
+        sort_four(&a, &b);
+    else if (size == 5)
+        sort_five(&a, &b);
+    else
+        k_sort(&a, &b);
+    // print_stack(a);
+    free_stack(&a);
+    free_stack(&b);
+    return (0);
 }

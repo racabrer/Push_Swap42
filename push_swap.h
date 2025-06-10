@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/09 20:01:34 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:54:53 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@
 
 typedef struct s_stack
 {
-	int				content;
-	int				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}					t_stack;
+	int 	nbr;
+	int 	content;
+	int		index;
+	int 	k;
+	struct  t_stack *next;
+	struct	t_stack *prev;
+} t_stack;
+
 
 // Stack init
 int					is_valid_number(const char *str);

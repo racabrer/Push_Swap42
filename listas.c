@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:09:43 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/09 19:54:35 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:54:42 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,18 @@ void	add_node_back(t_stack **stack, t_stack *new_node)
 
 void	print_stack(t_stack *stack)
 {
-	t_stack	*current;
-
-	if (!stack)
+    if (!stack)
+    {
+        printf("(vacio)\n");
+        return;
+    }
+    t_stack *current = stack;
+    while (current)
 	{
-		return ;
+		printf("num->%i\n", current->content);
+        current = current->next;
 	}
-	current = stack;
-	while (current)
-		current = current->next;
+	printf("\n");
 }
 
 void	ft_initstack(int argc, char **argv, t_stack **stack_a)
@@ -86,6 +89,7 @@ void	parse_args(char **spl_arr, t_stack **stack_a, int *index)
 		if (!is_valid_number(spl_arr[j]) || is_duplicate(*stack_a,
 				(int)str_to_long(spl_arr[j])))
 		{
+			write(2, "Error\n", 6);
 			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
