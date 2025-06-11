@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/11 18:54:53 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:55:37 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,22 +87,21 @@ t_stack				*find_smallest(t_stack *stack);
 int					get_k_size(int stack_size);
 void				ft_free_split(char **arr);
 
-// Indexes
-void				initialize_indexes(t_stack **stack);
-t_stack				*find_smallest_unindexed(t_stack *stack);
-void				assign_indexes(t_stack **stack);
-
-// K_sort
-int					get_position(t_stack *a, t_stack *smallest);
-t_stack				*find_max(t_stack *stack);
-void				push_back_from_b(t_stack **a, t_stack **b);
-void				push_chunk_to_b(t_stack **a, t_stack **b,
-						int *current_index, int k);
-void				k_sort(t_stack **a, t_stack **b);
-
-// Main
-void				exit_if_sorted(t_stack **a);
-void				choose_sorting(t_stack **a, t_stack **b);
-int					main(int argc, char **argv);
+//Indexes
+void 	initialize_indexes(t_stack **stack);
+t_stack *find_smallest_unindexed(t_stack *stack);
+void 	assign_indexes(t_stack **stack);
+ 
+//K_sort
+int 	get_k_size (int stack_size);
+int 	get_position (t_stack *a, t_stack *smallest);
+t_stack *find_max(t_stack *stack);
+void 	rb_stack(t_stack **b, int num);
+t_stack 	*look_tmp(t_stack *tmp, int *current_index, int *pos, int k);
+//int 	find_position(t_stack *a, int current_index, int k);
+void 	push_back_from_b(t_stack **a, t_stack **b, int k);
+//void	find_and_move_to_top(t_stack **a, int *current_index, int k);
+void 	push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k);
+void 	k_sort(t_stack **a, t_stack **b);
 
 #endif // PUSH_SWAP_H
