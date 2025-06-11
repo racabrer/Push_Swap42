@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:09:43 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/11 18:55:31 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:56:15 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	parse_args(char **spl_arr, t_stack **stack_a, int *index)
 		if (!is_valid_number(spl_arr[j]) || is_duplicate(*stack_a,
 				(int)str_to_long(spl_arr[j])))
 		{
-			write(2, "Error\n", 6);
 			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}

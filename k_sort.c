@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:27:50 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/11 18:55:25 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:56:09 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	get_k_size(int stack_size)
 int	get_position(t_stack *stack, t_stack *target)
 {
 	int	pos;
-	int	pos;
 
 	pos = 0;
 	while (stack)
@@ -43,15 +42,12 @@ int	get_position(t_stack *stack, t_stack *target)
 }
 
 t_stack	*find_max(t_stack *stack)
-t_stack	*find_max(t_stack *stack)
 {
-	t_stack	*max;
 	t_stack	*max;
 
 	max = stack;
 	while (stack)
 	{
-		if (stack->index > max->index)
 		if (stack->index > max->index)
 			max = stack;
 		stack = stack->next;
@@ -108,7 +104,6 @@ t_stack 	*look_tmp(t_stack *tmp, int *current_index, int *pos, int k)
 }
 
 void	push_chunk_to_b(t_stack **a, t_stack **b, int *current_index, int k)
-void	push_chunk_to_b(t_stack **a, t_stack **b, int *current_index, int k)
 {
 	t_stack	*tmp;
 	int		pos;
@@ -122,13 +117,11 @@ void	push_chunk_to_b(t_stack **a, t_stack **b, int *current_index, int k)
 	{
 		*current_index += k;
 		return ;
-		return ;
 	}
 	else if (pos < stack_size(*a) / 2)
 		while (pos-- > 0)
 			ra(a, false);
 	else
-		while (pos++ < stack_size(*a))
 		while (pos++ < stack_size(*a))
 			rra(a, false);
 	pb(a, b);
@@ -138,11 +131,7 @@ void	push_chunk_to_b(t_stack **a, t_stack **b, int *current_index, int k)
 }
 
 void	k_sort(t_stack **a, t_stack **b)
-void	k_sort(t_stack **a, t_stack **b)
 {
-	int	size;
-	int	k;
-	int	current_index;
 	int	size;
 	int	k;
 	int	current_index;
