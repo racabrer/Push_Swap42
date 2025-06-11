@@ -6,7 +6,7 @@
 /*   By: racabrer <racabrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 17:55:11 by racabrer          #+#    #+#             */
-/*   Updated: 2025/06/10 17:28:44 by racabrer         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:30:53 by racabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,11 @@ void 	assign_indexes(t_stack **stack);
 int 	get_k_size (int stack_size);
 int 	get_position (t_stack *a, t_stack *smallest);
 t_stack *find_max(t_stack *stack);
-void 	push_back_from_b(t_stack **a, t_stack **b);
+void 	rb_stack(t_stack **b, int num);
+t_stack 	*look_tmp(t_stack *tmp, int *current_index, int *pos, int k);
+//int 	find_position(t_stack *a, int current_index, int k);
+void 	push_back_from_b(t_stack **a, t_stack **b, int k);
+//void	find_and_move_to_top(t_stack **a, int *current_index, int k);
 void 	push_chunk_to_b (t_stack **a, t_stack **b, int *current_index, int k);
 void 	k_sort(t_stack **a, t_stack **b);
 
